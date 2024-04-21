@@ -24,6 +24,13 @@ check [contrition.md](./CONTRIBUTION.MD) file for guidelines on how to contribut
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://limistah.dev"><img src="https://avatars.githubusercontent.com/u/30846935?v=4?s=100" width="100px;" alt="Aleem Isiaka"/><br /><sub><b>Aleem Isiaka</b></sub></a><br /><a href="#maintenance-limistah" title="Maintenance">🚧</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
