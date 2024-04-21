@@ -17,7 +17,7 @@ For an overview of how raft works, check out [this resource](https://thesecretli
 ## Contributing
 Check the discussions to contribute to existing ideas/feature or suggest a new one.
 
-check [contrition.md](./CONTRIBUTION.MD) file for guidelines on how to contribute directly to the project.
+check [contribution.md](./CONTRIBUTION.MD) file for guidelines on how to contribute directly to the project.
 
 ## Contributors
 
