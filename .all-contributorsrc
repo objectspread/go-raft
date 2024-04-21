@@ -19,7 +19,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/30846935?v=4",
       "profile": "https://limistah.dev",
       "contributions": [
-        "maintenance"
+        "maintenance",
+        "doc",
+        "review",
+        "tool",
+        "test",
+        "ideas",
+        "infra"
       ]
     }
   ]
