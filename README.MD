@@ -1,11 +1,18 @@
 
 <center><h1>Go Raft</h1><center>
 
-A standalone implementation of the raft algorithm in go programming language. It features the code for both the server and the client.
+A standalone implementation of the raft algorithm in go programming language.
 
----
+It features the code for both the server and the client.
 
-For an overview of how raft works, check out [this resource](https://thesecretlivesofdata.com/raft/)
+### Raft Resources
+
+#### The Raft Paper
+Checkout the [Raft Paper](https://raft.github.io/raft.pdf) document as a reference.
+
+#### A Visual Demonstration of Raft
+
+For an overview of how raft works, check out [this resource](https://thesecretlivesofdata.com/raft/).
 
 ## Contributing
 Check the discussions to contribute to existing ideas/feature or suggest a new one.
