@@ -1,4 +1,13 @@
 {
   "projectName": "go-raft",
-  "projectOwner": "objectspread"
+  "projectOwner": "objectspread",
+  "contributorsPerLine": 7,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false
 }
