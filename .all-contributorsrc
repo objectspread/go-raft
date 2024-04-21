@@ -6,7 +6,7 @@
   "repoHost": "https://github.com",
   "skipCi": true,
   "files": [
-    "README.md"
+    "README.MD"
   ],
   "imageSize": 100,
   "commit": false
