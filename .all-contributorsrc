@@ -9,5 +9,18 @@
     "README.MD"
   ],
   "imageSize": 100,
-  "commit": false
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "limistah",
+      "name": "Aleem Isiaka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30846935?v=4",
+      "profile": "https://limistah.dev",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ]
 }
