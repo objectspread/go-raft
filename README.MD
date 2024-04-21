@@ -14,6 +14,10 @@ Checkout the [Raft Paper](https://raft.github.io/raft.pdf) document as a referen
 
 For an overview of how raft works, check out [this resource](https://thesecretlivesofdata.com/raft/).
 
+## Author
+
+- [Limistah](https:limistah.dev)
+
 ## Contributing
 Check the discussions to contribute to existing ideas/feature or suggest a new one.
 
