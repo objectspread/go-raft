@@ -19,6 +19,13 @@ Check the discussions to contribute to existing ideas/feature or suggest a new o
 
 check [contrition.md](./CONTRIBUTION.MD) file for guidelines on how to contribute directly to the project.
 
+## Contributors
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
+<!-- ALL-CONTRIBUTORS-LIST:END -->
