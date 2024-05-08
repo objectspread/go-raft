@@ -1,25 +1,27 @@
 
 <center><h1>Go Raft</h1><center>
 
-A standalone implementation of the raft algorithm in go programming language.
+A standalone implementation of the raft algorithm in Go programming language.
 
 It features the code for both the server and the client.
 
 ### Raft Resources
 
 #### The Raft Paper
-Checkout the [Raft Paper](https://raft.github.io/raft.pdf) document as a reference.
+Check out the [Raft Paper](https://raft.github.io/raft.pdf) document as a reference.
 
 #### A Visual Demonstration of Raft
-
 For an overview of how raft works, check out [this resource](https://thesecretlivesofdata.com/raft/).
+
+#### Flow Diagrams
+The Raft Paper contains an explanation of the Raft Consensus Algorithm. The explanation has been condensed into [flow diagrams contained in this repo](/blob/main/docs/diagrams/README.MD).
 
 ## Author
 
 - [Limistah](https:limistah.dev)
 
 ## Contributing
-Check the discussions to contribute to existing ideas/feature or suggest a new one.
+Check the discussions to contribute to existing ideas/features or suggest a new one.
 
 check [contribution.md](./CONTRIBUTION.MD) file for guidelines on how to contribute directly to the project.
 
