@@ -14,7 +14,9 @@ Check out the [Raft Paper](https://raft.github.io/raft.pdf) document as a refere
 For an overview of how raft works, check out [this resource](https://thesecretlivesofdata.com/raft/).
 
 #### Flow Diagrams
-The Raft Paper contains an explanation of the Raft Consensus Algorithm. The explanation has been condensed into [flow diagrams contained in this repo](/blob/main/docs/diagrams/README.MD).
+The Raft Paper contains an explanation of the Raft Consensus Algorithm.
+
+The explanation has been condensed into [flow diagrams in this repo](/docs/diagrams/README.MD).
 
 ## Author
 
