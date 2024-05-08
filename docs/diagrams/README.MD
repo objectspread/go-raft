@@ -12,3 +12,7 @@
 - [A follower receiving installSnapshot RPC](./replicate_snapshot_follower.png)
 - [Client sending a request to cluster](./handling_request_client.png)
 - [Cluster handling client request](./handling_request_cluster.png)
+
+OR
+
+[View on Draw.io](https://viewer.diagrams.net/?tags=%7B%7D&target=blank&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Go%20Raft.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1w9wCF4ZSG-TDdL28SPN0fpo3iPQxdzB-%26export%3Ddownload)
