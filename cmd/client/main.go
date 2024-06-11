@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	
+
 	command := &cobra.Command{
 		Use:   "goraft-client",
 		Short: "Go Raft client sends requests to Raft server",
@@ -21,11 +21,12 @@ func main() {
 			if err := app.Connect(); err != nil {
 				fmt.Println(err)
 			}
+			defer app.Close()
 
 			if err := app.SendHelloRequest(); err != nil {
 				fmt.Println(err)
 			}
-			
+
 			return nil
 		},
 	}

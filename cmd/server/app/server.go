@@ -2,6 +2,7 @@ package app
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net"
 
@@ -42,7 +43,12 @@ func (s *RaftServer) Start() error {
 	pb.RegisterHelloWorldServiceServer(s.grpcServer, &RaftServer{})
 	log.Printf("gRPC server listening at %v", lis.Addr())
 	if err := s.grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+		return fmt.Errorf("failed to listen on port 50051: %v", zap.Error(err))
 	}
+	return nil
+}
+
+func (s *RaftServer) Stop() error {
+	s.grpcServer.Stop()
 	return nil
 }

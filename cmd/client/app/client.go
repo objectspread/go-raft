@@ -11,7 +11,6 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-
 type RaftClient struct {
 	logger *zap.Logger
 	// hServer    *http.Server
@@ -21,7 +20,7 @@ type RaftClient struct {
 // RaftServerParams to construct a new Raft Server.
 type RaftClientParams struct {
 	Logger *zap.Logger
-	Host string
+	Host   string
 }
 
 func New(params *RaftClientParams) *RaftClient {
@@ -30,13 +29,12 @@ func New(params *RaftClientParams) *RaftClient {
 	}
 }
 
-func (c *RaftClient) Close() (error) {
+func (c *RaftClient) Close() error {
 	return c.grpcConn.Close()
 }
 
-
 func (c *RaftClient) Connect() (err error) {
-	c.grpcConn, err = grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	c.grpcConn, err = grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return err
 	}
