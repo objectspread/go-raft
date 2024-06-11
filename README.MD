@@ -1,7 +1,7 @@
 
 <center><h1>Go Raft</h1><center>
 
-A standalone implementation of the raft algorithm in Go programming language.
+A standalone implementation of the raft algorithm in the Go programming language.
 
 It features the code for both the server and the client.
 
