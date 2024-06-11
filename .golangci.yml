@@ -1,0 +1,124 @@
+issues:
+  # Excluding configuration per-path, per-linter, per-text and per-source
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters: [gosec, bodyclose, noctx]
+
+    - path: crossdock
+      linters: [noctx]
+
+    - path: internal/grpctest/
+      linters: [staticcheck]
+
+    - linters: [gocritic]
+      text: "dupArg"
+    - linters: [gocritic]
+      text: "exitAfterDefer"
+    - linters: [gocritic]
+      text: "appendAssign"
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+linters:
+  disable:
+    - errcheck
+  enable:
+    # Plain ASCII identifiers.
+    - asciicheck
+
+    # Checks for dangerous unicode character sequences.
+    - bidichk
+
+    # Checks whether HTTP response body is closed successfully.
+    # TODO enable this but maybe find a way to disable in tests.
+    - bodyclose
+
+    # Check whether the function uses a non-inherited context.
+    - contextcheck
+
+    # Check declaration order of types, consts, vars and funcs.
+    - decorder
+
+    # Checks if package imports are in a list of acceptable packages (see cfg below).
+    - depguard
+
+    # Check for two durations multiplied together.
+    - durationcheck
+
+    # Checks `Err-` prefix for var and `-Error` suffix for error type.
+    - errname
+
+    # Suggests to use `%w` for error-wrapping.
+    - errorlint
+
+    # Checks for pointers to enclosing loop variables.
+    - exportloopref
+
+    - gocritic
+    - gofmt
+    - gofumpt
+    - goimports
+
+    # Allow or ban replace directives in go.mod
+    # or force explanation for retract directives.
+    # Maybe enable once we get rid of old sarama.
+    # - gomoddirectives
+
+    - gosec
+
+    # Linter that specializes in simplifying code.
+    - gosimple
+    - govet
+
+    # Detects when assignments to existing variables are not used.
+    - ineffassign
+
+    - misspell
+
+    # Finds naked/bare returns and requires change them.
+    - nakedret
+
+    # Require a bit more explicit returns.
+    - nilerr
+
+    # Finds sending HTTP request without context.Context.
+    - noctx
+
+    # TODO consider adding more linters, cf. https://olegk.dev/go-linters-configuration-the-right-version
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/objectspread/go-raft
+  gosec:
+    # To specify a set of rules to explicitly exclude.
+    # Available rules: https://github.com/securego/gosec#available-rules
+    excludes:
+      - G104
+      - G107
+      - G404
+      - G601
+  gosimple:
+    go: "1.22"
+  govet:
+    check-shadowing: false
+    enable-all: true
+    disable:
+      # There is rarely performance differences due to padding,
+      # the most noticable impact is memory usage. However,
+      # the main trace data is Protobuf-generated and we ignore
+      # those files from linting, so this linter is not useful.
+      - fieldalignment
+      # Disable shadow
+      - shadow
+
+run:
+  go: "1.22"
+  timeout: 20m
+  skip-dirs-use-default: false
+  skip-dirs:
+    - mocks
+    - thrift-0.9.2
+    - .*-gen
+  skip-files:
+    - ".*.pb.go$"
