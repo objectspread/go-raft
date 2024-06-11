@@ -61,6 +61,8 @@ DATE=$(shell TZ=UTC0 git show --quiet --date='format-local:%Y-%m-%dT%H:%M:%SZ' -
 BUILD_INFO_IMPORT_PATH=$(GORAFT_IMPORT_PATH)/pkg/version
 BUILD_INFO=-ldflags "-X $(BUILD_INFO_IMPORT_PATH).commitSHA=$(GIT_SHA) -X $(BUILD_INFO_IMPORT_PATH).latestVersion=$(GIT_CLOSEST_TAG) -X $(BUILD_INFO_IMPORT_PATH).date=$(DATE)"
 
+include ./Makefile.Protobuf.mk
+
 .PHONY: fmt
 fmt:
 	@echo Running gofmt on ALL_SRC ...
