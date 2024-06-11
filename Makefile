@@ -70,7 +70,7 @@ include ./Makefile.Protobuf.mk
 fmt:
 	@echo Running gofmt on ALL_SRC ...
 	@$(GOFMT) -e -s -l -w $(ALL_SRC)
-	@$(GOIMPORT)
+	@$(GOFUMPT) -e -l -w $(ALL_SRC)
 	
 
 .PHONY: lint
@@ -223,3 +223,4 @@ install-ci: install-test-tools install-build-tools
 .PHONY: install-lint-tools
 install-lint-tools:
 	$(GO) install golang.org/x/tools/cmd/goimports@latest
+	$(GO) install mvdan.cc/gofumpt@latest

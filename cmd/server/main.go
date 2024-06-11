@@ -12,11 +12,10 @@ import (
 )
 
 func main() {
-
 	command := &cobra.Command{
 		Use:   "goraft-server",
 		Short: "Go Raft server receives and processes requests from clients",
-		Long:  `Go Raft server receives and processes requests from clients`,
+		Long:  "Go Raft server receives and processes requests from clients",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			app := app.New(&app.RaftServerParams{Logger: &zap.Logger{}})
 

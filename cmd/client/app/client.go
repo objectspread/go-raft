@@ -45,7 +45,6 @@ func (c *RaftClient) Connect() (err error) {
 }
 
 func (c *RaftClient) SendHelloRequest() (err error) {
-
 	_c := pb.NewHelloWorldServiceClient(c.grpcConn)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)

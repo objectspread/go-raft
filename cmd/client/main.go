@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-
 	command := &cobra.Command{
 		Use:   "goraft-client",
 		Short: "Go Raft client sends requests to Raft server",
