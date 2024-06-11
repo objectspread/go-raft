@@ -1,5 +1,4 @@
 
-
 ## Flow Diagrams
 - [Follower becoming a candidate](./follower_becomes_candidate.png)
 - [Candidate becoming a leader](./candidate_becoming_leader.png)
