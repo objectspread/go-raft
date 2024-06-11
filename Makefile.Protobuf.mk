@@ -1,9 +1,5 @@
 PROTOC=protoc
-SHELL := /bin/sh
 
-GOBINPATH := $(shell go env GOPATH)/bin
-PATH := $(shell echo $$PATH):$(GOBINPATH)
-SHELL := /bin/bash
 # export PATH := $(TESTDIR):$(PATH)
 # Macro to execute a command passed as argument.
 # DO NOT DELETE EMPTY LINE at the end of the macro, it's required to separate commands.

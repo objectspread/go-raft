@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/objectspread/go-raft/cmd/client/app"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
+
+	"github.com/objectspread/go-raft/cmd/client/app"
 )
 
 func main() {

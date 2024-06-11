@@ -1,5 +1,7 @@
 .DEFAULT_GOAL := fmt
 
+GOBINPATH := $(shell go env GOPATH)/bin
+PATH := $(shell echo $$PATH):$(GOBINPATH)
 SHELL := /bin/bash
 GORAFT_IMPORT_PATH = github.com/objectspread/go-raft
 
@@ -25,6 +27,7 @@ GOOS ?= $(shell $(GO) env GOOS)
 GOARCH ?= $(shell $(GO) env GOARCH)
 GOBUILD=CGO_ENABLED=0 installsuffix=cgo $(GO) build -trimpath
 GOFMT=gofmt
+GOIMPORT=goimports
 GOFUMPT=gofumpt
 
 FMT_LOG=.fmt.log
@@ -67,6 +70,7 @@ include ./Makefile.Protobuf.mk
 fmt:
 	@echo Running gofmt on ALL_SRC ...
 	@$(GOFMT) -e -s -l -w $(ALL_SRC)
+	@$(GOIMPORT)
 	
 
 .PHONY: lint
@@ -215,3 +219,7 @@ install-tools: install-test-tools install-build-tools
 
 .PHONY: install-ci
 install-ci: install-test-tools install-build-tools
+
+.PHONY: install-lint-tools
+install-lint-tools:
+	$(GO) install golang.org/x/tools/cmd/goimports@latest

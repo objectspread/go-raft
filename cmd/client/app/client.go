@@ -5,10 +5,11 @@ import (
 	"log"
 	"time"
 
-	pb "github.com/objectspread/go-raft/proto-gen/server"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+
+	pb "github.com/objectspread/go-raft/proto-gen/server"
 )
 
 type RaftClient struct {
@@ -24,6 +25,7 @@ type RaftClientParams struct {
 }
 
 func New(params *RaftClientParams) *RaftClient {
+	d := time.Hour
 	return &RaftClient{
 		logger: params.Logger,
 	}

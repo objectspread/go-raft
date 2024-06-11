@@ -6,9 +6,10 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/objectspread/go-raft/proto-gen/server"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
+
+	pb "github.com/objectspread/go-raft/proto-gen/server"
 )
 
 type RaftServer struct {
