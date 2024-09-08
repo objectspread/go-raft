@@ -1,5 +1,8 @@
 {
   "raft-server": {
     "host-port": 50220
+  },
+  "raft-client": {
+    "grpc-host": "localhost:50220"
   }
 }

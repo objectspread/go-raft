@@ -2,14 +2,15 @@ package app
 
 import (
 	"context"
-	"log"
-	"time"
-
+	"fmt"
+	"github.com/objectspread/go-raft/cmd/client/app/client"
+	"github.com/objectspread/go-raft/cmd/client/app/flags"
+	"github.com/objectspread/go-raft/cmd/server/app/handler"
+	"github.com/objectspread/go-raft/proto-gen/server/api_v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
-
-	pb "github.com/objectspread/go-raft/proto-gen/server"
+	"log"
+	"time"
 )
 
 type RaftClient struct {
@@ -18,43 +19,44 @@ type RaftClient struct {
 	grpcConn *grpc.ClientConn
 }
 
-// RaftServerParams to construct a new Raft Server.
+// RaftClientParams to construct a new Raft Client.
 type RaftClientParams struct {
 	Logger *zap.Logger
 	Host   string
 }
 
 func New(params *RaftClientParams) *RaftClient {
-	d := time.Hour
 	return &RaftClient{
 		logger: params.Logger,
 	}
 }
 
-func (c *RaftClient) Close() error {
-	return c.grpcConn.Close()
-}
-
-func (c *RaftClient) Connect() (err error) {
-	c.grpcConn, err = grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+func (c *RaftClient) Start(options *flags.RaftClientOptions) error {
+	grpcConn, err := client.StartGRPCClient(&client.GRPCClientParams{
+		Logger:  c.logger,
+		Host:    options.GRPC.Host,
+		Handler: handler.NewGRPCHandler(c.logger),
+	})
 	if err != nil {
-		return err
+		return fmt.Errorf("could not start grpc server %w", err)
 	}
 
-	return nil
-}
-
-func (c *RaftClient) SendHelloRequest() (err error) {
-	_c := pb.NewHelloWorldServiceClient(c.grpcConn)
-
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	_c := api_v1.NewPingPongServiceClient(grpcConn)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	r, err := _c.SayHello(ctx, &pb.HelloWorldRequest{})
+	r, err := _c.Ping(ctx, &api_v1.PingRequest{})
 	if err != nil {
 		return err
 	}
 
 	log.Printf("Response from gRPC server's SayHello function: %s", r.GetMessage())
+
+	c.grpcConn = grpcConn
+	return nil
+}
+
+func (c *RaftClient) Stop() error {
+	c.grpcConn.Close()
 	return nil
 }
