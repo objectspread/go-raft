@@ -40,7 +40,7 @@ linters:
     # Check declaration order of types, consts, vars and funcs.
     - decorder
 
-    # Checks if package imports are in a list of acceptable packages (see cfg below).
+    # Checks if package imports are in a list of acceptable pkg (see cfg below).
     - depguard
 
     # Check for two durations multiplied together.

@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-option go_package = "github.com/objectspread/go-raft/cmd/server";
+option go_package = "github.com/objectspread/go-raft/cmd/server/api_v1";
 
-package helloworld;
+package go_raft;
 
-service HelloWorldService {
-  rpc SayHello(HelloWorldRequest) returns (HelloWorldResponse) {}
+service PingPongService {
+  rpc Ping(PingRequest) returns (PongResponse) {}
 }
 
-message HelloWorldRequest {}
+message PingRequest {}
 
-message HelloWorldResponse {
+message PongResponse {
   string message = 1;
 }

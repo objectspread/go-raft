@@ -1,0 +1,5 @@
+{
+  "raft-server": {
+    "host-port": 50220
+  }
+}

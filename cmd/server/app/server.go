@@ -1,22 +1,22 @@
 package app
 
 import (
-	"context"
 	"fmt"
-	"log"
-	"net"
 
+	"github.com/objectspread/go-raft/cmd/server/app/flags"
+	"github.com/objectspread/go-raft/cmd/server/app/handler"
+	"github.com/objectspread/go-raft/cmd/server/app/server"
+	"github.com/objectspread/go-raft/proto-gen/server/api_v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
-
-	pb "github.com/objectspread/go-raft/proto-gen/server"
 )
 
 type RaftServer struct {
 	logger *zap.Logger
 	// hServer    *http.Server
 	grpcServer *grpc.Server
-	pb.UnimplementedHelloWorldServiceServer
+
+	api_v1.UnimplementedPingPongServiceServer
 }
 
 // RaftServerParams to construct a new Raft Server.
@@ -30,22 +30,19 @@ func New(params *RaftServerParams) *RaftServer {
 	}
 }
 
-func (s *RaftServer) SayHello(ctx context.Context, in *pb.HelloWorldRequest) (*pb.HelloWorldResponse, error) {
-	return &pb.HelloWorldResponse{Message: "Hello, World! "}, nil
-}
-
-func (s *RaftServer) Start() error {
-	lis, err := net.Listen("tcp", ":50051")
+func (s *RaftServer) Start(options *flags.RaftServerOptions) error {
+	grpcServer, err := server.StartGRPCServer(&server.GRPCServerParams{
+		Logger:                  s.logger,
+		HostPort:                options.GRPC.HostPort,
+		MaxReceiveMessageLength: options.GRPC.MaxReceiveMessageLength,
+		MaxConnectionAge:        options.GRPC.MaxConnectionAge,
+		MaxConnectionAgeGrace:   options.GRPC.MaxConnectionAgeGrace,
+		Handler:                 handler.NewGRPCHandler(s.logger),
+	})
 	if err != nil {
-		log.Fatalf("failed to listen on port 50051: %v", err)
+		return fmt.Errorf("could not start grpc server %w", err)
 	}
-
-	s.grpcServer = grpc.NewServer()
-	pb.RegisterHelloWorldServiceServer(s.grpcServer, &RaftServer{})
-	log.Printf("gRPC server listening at %v", lis.Addr())
-	if err := s.grpcServer.Serve(lis); err != nil {
-		return fmt.Errorf("failed to listen on port 50051: %v", zap.Error(err))
-	}
+	s.grpcServer = grpcServer
 	return nil
 }
 
