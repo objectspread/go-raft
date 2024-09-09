@@ -224,3 +224,23 @@ install-ci: install-test-tools install-build-tools
 install-lint-tools:
 	$(GO) install golang.org/x/tools/cmd/goimports@latest
 	$(GO) install mvdan.cc/gofumpt@latest
+
+.PHONY: run-test-1
+run-test-1:
+	bash -c './test/run.sh 1'
+
+.PHONY: run-test-2
+run-test-2:
+	bash -c './test/run.sh 2'
+
+.PHONY: run-test-3
+run-test-3:
+	bash -c './test/run.sh 3'
+
+.PHONY: run-test-4
+run-test-4:
+	bash -c './test/run.sh 4'
+
+.PHONY: run-test-0
+run-test-0:
+	bash -c './test/run.sh 0'

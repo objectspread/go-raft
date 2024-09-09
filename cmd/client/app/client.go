@@ -1,16 +1,12 @@
 package app
 
 import (
-	"context"
 	"fmt"
 	"github.com/objectspread/go-raft/cmd/client/app/client"
 	"github.com/objectspread/go-raft/cmd/client/app/flags"
 	"github.com/objectspread/go-raft/cmd/server/app/handler"
-	"github.com/objectspread/go-raft/proto-gen/server/api_v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
-	"log"
-	"time"
 )
 
 type RaftClient struct {
@@ -41,16 +37,16 @@ func (c *RaftClient) Start(options *flags.RaftClientOptions) error {
 		return fmt.Errorf("could not start grpc server %w", err)
 	}
 
-	_c := api_v1.NewPingPongServiceClient(grpcConn)
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
-	defer cancel()
-
-	r, err := _c.Ping(ctx, &api_v1.PingRequest{})
-	if err != nil {
-		return err
-	}
-
-	log.Printf("Response from gRPC server's SayHello function: %s", r.GetMessage())
+	//_c := api_v1.NewPingPongServiceClient(grpcConn)
+	//ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
+	//defer cancel()
+	//
+	//r, err := _c.Ping(ctx, &api_v1.PingRequest{})
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//log.Printf("Response from gRPC server's SayHello function: %s", r.GetMessage())
 
 	c.grpcConn = grpcConn
 	return nil

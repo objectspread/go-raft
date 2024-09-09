@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18d1e383-a70b-494f-802c-f2af0915c57f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cmd/client/app/client/grpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/client/app/flags/flags.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/client/app/handler/grpc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/configs/srv-0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/configs/srv-1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/configs/srv-2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/configs/srv-3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/configs/srv-4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/run.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/client/app/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/client/app/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/client/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/server/app/flags/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/server/app/flags/admin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -52,12 +55,16 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/limistah/Work/obsp/go-raft",
+    "last_opened_file_path": "/Users/limistah/Work/obsp/go-raft/test/configs",
     "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/configs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/proto-gen/server/api_v1" />
       <recent name="$PROJECT_DIR$/cmd/server/app/flags" />
