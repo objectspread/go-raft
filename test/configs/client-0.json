@@ -1,0 +1,6 @@
+{
+  "raft-client": {
+    "grpc-host": "localhost:50220",
+    "http-host": "http://localhost:50220"
+  }
+}
