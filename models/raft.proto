@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "github.com/objectspread/go-raft/cmd/server/api_v1";
+
+package go_raft;
+
+service RaftService {
+  rpc Ping(PingRequest) returns (PongResponse) {}
+  rpc RequestVote(RequestVoteRequest) returns (RequestVoteResponse) {}
+}
+
+message PingRequest {}
+
+message PongResponse {
+  string message = 1;
+}
+
+message RequestVoteRequest {
+  string term = 1; // the term the candidate is requesting vote for
+  string candidateId = 2; // the candidate id
+  string lastLogIndex = 3; // the last log index of the candidate
+  string lastLogTerm = 4; // the last log term of the candidate
+}
+
+message RequestVoteResponse {
+  bool success = 1; // respond with false if term < currentTerm
+  string votedFor = 2; // who the receiver voted for
+  string lastLogIndex = 3; // the last log index of the receiver
+  string lastLogTerm = 4; // the last log term of the receiver
+}
