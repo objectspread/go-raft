@@ -38,7 +38,9 @@ proto: proto-server
 
 .PHONY: proto-model
 proto-server: install-protogen-deps
-	$(call proto_compile, proto-gen, models/server.proto)
+	$(call proto_compile, proto-gen, models/raft.proto)
+	mv ./proto-gen/models/* ./proto-gen/server/api_v1
+	rm -r ./proto-gen/models
 
 .PHONY: install-protogen-deps
 install-protogen-deps:

@@ -75,7 +75,7 @@ fmt:
 
 .PHONY: lint
 lint:
-	golangci-lint -v run
+	golangci-lint -v run --fix
 	@[ ! -s "$(FMT_LOG)" -a ! -s "$(IMPORT_LOG)" ] || (echo "License check or import ordering failures, run 'make fmt'" | cat - $(FMT_LOG) $(IMPORT_LOG) && false)
 	
 .PHONY: clean
@@ -226,12 +226,7 @@ install-lint-tools:
 	$(GO) install mvdan.cc/gofumpt@latest
 
 .PHONY: run-test-1
-run-test-1:
-	bash -c './test/run.sh 1'
 
-.PHONY: run-test-2
-run-test-2:
-	bash -c './test/run.sh 2'
 
 .PHONY: run-test-3
 run-test-3:
@@ -243,4 +238,12 @@ run-test-4:
 
 .PHONY: run-test-0
 run-test-0:
-	bash -c './test/run.sh 0'
+	air --build.cmd "go build -o bin/server cmd/server/main.go" --build.bin "./bin/server --config-file=./test/configs/srv-0.json" --build.exclude_dir "templates,build,models,bin,tmp,docs,.idea"
+
+run-test-1:
+	air --build.cmd "go build -o bin/server cmd/server/main.go" --build.bin "./bin/server --config-file=./test/configs/srv-1.json" --build.exclude_dir "templates,build,models,bin,tmp,docs,.idea"
+
+
+.PHONY: run-test-2
+run-test-2:
+	air --build.cmd "go build -o bin/server cmd/server/main.go" --build.bin "./bin/server --config-file=./test/configs/srv-2.json" --build.exclude_dir "templates,build,models,bin,tmp,docs,.idea"

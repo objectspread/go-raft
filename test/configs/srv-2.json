@@ -1,15 +1,11 @@
 {
-    "raft-server": {
+  "raft-server": {
     "host-port": 50222,
-        "cluster": [
-        "localhost:50223",
-        "localhost:50224",
-        "localhost:50220",
-        "localhost:50221"
+    "cluster": [
+      "localhost:50223",
+      "localhost:50224",
+      "localhost:50220",
+      "localhost:50221"
     ]
-},
-    "raft-client": {
-    "grpc-host": "localhost:50220",
-        "http-host": "http://localhost:50220"
-}
+  }
 }

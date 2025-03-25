@@ -1,0 +1,2 @@
+Complete the RPC module to send request for vote
+in the future, we can consider the fact that the servers can communicate using a transport API that is server agnostic

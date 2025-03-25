@@ -24,4 +24,4 @@ config=$1
     esac
 
 echo "Starting Raft Server with config file ${config}"
-./cmd/server/server-darwin-arm64 --config-file=${config}
+go run ./cmd/server/main.go --config-file=${config}
